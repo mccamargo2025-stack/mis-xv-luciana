@@ -28,11 +28,12 @@
             font-family: 'Montserrat', sans-serif;
             min-height: 100vh;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            padding: 20px;
+            padding: 20px 10px;
             position: relative;
             overflow-x: hidden;
+            overflow-y: auto;
         }
 
         /* Mariposas y flores flotantes decorativas */
@@ -55,12 +56,18 @@
             z-index: 1;
             max-width: 480px;
             width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .section-card {
             background: var(--card-bg);
             border: 1px solid rgba(223, 184, 117, 0.35);
-            border-radius: 30px;
-            padding: 40px 25px;
+            border-radius: 25px;
+            padding: 30px 20px;
             text-align: center;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 35px rgba(147, 197, 253, 0.15);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(147, 197, 253, 0.1);
             backdrop-filter: blur(12px);
         }
 
@@ -81,19 +88,33 @@
 
         .name {
             font-family: 'Great Vibes', cursive;
-            font-size: 4.8rem;
+            font-size: 4.5rem;
             color: var(--silver);
             text-shadow: 0 0 20px rgba(226, 232, 240, 0.5);
             line-height: 1.1;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .intro-text {
             font-size: 0.95rem;
             line-height: 1.6;
             color: #cbd5e1;
-            margin-bottom: 25px;
-            padding: 0 10px;
+            padding: 0 5px;
+        }
+
+        .scroll-down {
+            font-size: 0.8rem;
+            color: var(--gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 10px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-6px);}
+            60% {transform: translateY(-3px);}
         }
 
         /* Reproductor de música */
@@ -102,7 +123,6 @@
             border: 1px dashed var(--gold);
             border-radius: 15px;
             padding: 15px;
-            margin-bottom: 25px;
             font-size: 0.85rem;
             color: var(--gold);
         }
@@ -114,20 +134,19 @@
             filter: invert(90%) hue-rotate(180deg);
         }
 
-        /* Cuenta regresiva estilo moderno */
+        /* Cuenta regresiva */
         .countdown-title {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: var(--gold);
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
 
         .countdown {
             display: flex;
             justify-content: space-between;
             gap: 8px;
-            margin-bottom: 30px;
         }
 
         .time-box {
@@ -155,10 +174,10 @@
         .details {
             background: rgba(255, 255, 255, 0.03);
             border-radius: 18px;
-            padding: 20px;
-            margin-bottom: 25px;
+            padding: 15px;
             border-top: 1px solid rgba(226, 232, 240, 0.2);
             border-bottom: 1px solid rgba(226, 232, 240, 0.2);
+            margin-bottom: 15px;
         }
 
         .detail-item {
@@ -180,7 +199,7 @@
             display: block;
             width: 100%;
             padding: 14px 20px;
-            margin: 12px 0;
+            margin: 10px 0;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
@@ -214,14 +233,6 @@
         }
 
         /* Caja de regalo y alias */
-        .gift-box {
-            margin-top: 25px;
-            padding: 18px;
-            background: rgba(10, 15, 30, 0.6);
-            border-radius: 16px;
-            border: 1px solid rgba(223, 184, 117, 0.25);
-        }
-
         .alias-text {
             font-family: monospace;
             font-size: 1rem;
@@ -243,83 +254,96 @@
 </head>
 <body>
 
-    <!-- Elementos flotantes de mariposas y flores -->
+    <!-- Elementos flotantes de fondo -->
     <div class="floating-decor" style="top: 5%; left: 8%;">🦋</div>
-    <div class="floating-decor" style="top: 15%; right: 10%; animation-delay: 2s;">🌸</div>
-    <div class="floating-decor" style="bottom: 20%; left: 6%; animation-delay: 4s;">✨</div>
-    <div class="floating-decor" style="bottom: 10%; right: 8%; animation-delay: 1s;">🦋</div>
+    <div class="floating-decor" style="top: 25%; right: 10%; animation-delay: 2s;">🌸</div>
+    <div class="floating-decor" style="top: 55%; left: 6%; animation-delay: 4s;">✨</div>
+    <div class="floating-decor" style="top: 80%; right: 8%; animation-delay: 1s;">🦋</div>
 
     <div class="container">
-        <div class="floral-header">💎✨🦋</div>
-        <div class="subtitle">Mis XV Años</div>
-        <h1 class="name">Luciana</h1>
-
-        <p class="intro-text">
-            ¡Hola! Quería compartir uno de los momentos más importantes de mi vida.<br><br>
-            💌 Acá está la tarjeta digital a mis 15 años. ¡Ojalá podamos compartir este momento! ✨
-        </p>
-
-        <!-- REPRODUCTOR DE MÚSICA -->
-        <div class="music-box">
-            🎵 <strong>Something Just Like This</strong><br>
-            <small>The Chainsmokers & Coldplay</small>
-            <audio controls loop>
-                <source src="https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3" type="audio/mpeg">
-                Tu navegador no soporta el elemento de audio.
-            </audio>
+        
+        <!-- SECCIÓN 1: PORTADA / BIENVENIDA -->
+        <div class="section-card">
+            <div class="floral-header">💎✨🦋</div>
+            <div class="subtitle">Mis XV Años</div>
+            <h1 class="name">Luciana</h1>
+            <p class="intro-text">
+                Hay momentos que quedan grabados para siempre en el corazón. Este es uno de ellos. Por eso, me llena de alegría invitarte a compartir esta celebración tan especial.<br><br>
+                💌 Prepará tu mejor estilo y acompañame a celebrar esta noche mágica. ✨
+            </p>
+            <div class="scroll-down">Deslizá hacia abajo ↓</div>
         </div>
 
-        <!-- CUENTA REGRESIVA -->
-        <div class="countdown-title">Faltan</div>
-        <div class="countdown">
-            <div class="time-box"><span id="days">00</span><small>Días</small></div>
-            <div class="time-box"><span id="hours">00</span><small>Hs</small></div>
-            <div class="time-box"><span id="minutes">00</span><small>Min</small></div>
-            <div class="time-box"><span id="seconds">00</span><small>Seg</small></div>
-        </div>
-
-        <!-- DETALLES -->
-        <div class="details">
-            <div class="detail-item">
-                <strong>📅 Fecha & Hora</strong>
-                Viernes 11 de Diciembre<br>
-                De 20:30 a 04:30 hs
+        <!-- SECCIÓN 2: MÚSICA Y CUENTA REGRESIVA -->
+        <div class="section-card">
+            <div class="music-box">
+                🎵 <strong>Something Just Like This</strong><br>
+                <small>The Chainsmokers & Coldplay</small>
+                <audio controls loop>
+                    <source src="https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3" type="audio/mpeg">
+                    Tu navegador no soporta el elemento de audio.
+                </audio>
             </div>
-            <div class="detail-item">
-                <strong>🖤 Código de Vestimenta</strong>
-                Total Black (elegante sport)
+
+            <div style="margin-top: 20px;">
+                <div class="countdown-title">Faltan para el Gran Día</div>
+                <div class="countdown">
+                    <div class="time-box"><span id="days">00</span><small>Días</small></div>
+                    <div class="time-box"><span id="hours">00</span><small>Hs</small></div>
+                    <div class="time-box"><span id="minutes">00</span><small>Min</small></div>
+                    <div class="time-box"><span id="seconds">00</span><small>Seg</small></div>
+                </div>
             </div>
         </div>
 
-        <!-- BOTONES DE ENLACES -->
-        <a href="https://maps.app.goo.gl/wDqsEFMu1FzSLMH59" target="_blank" class="btn btn-primary">
-            📍 ¿CÓMO LLEGAR? (VER MAPA)
-        </a>
+        <!-- SECCIÓN 3: DETALLES DEL EVENTO -->
+        <div class="section-card">
+            <h3 style="font-family: 'Cinzel Decorative', serif; color: var(--gold); margin-bottom: 15px; font-size: 1.1rem;">Detalles</h3>
+            <div class="details">
+                <div class="detail-item">
+                    <strong>📅 Fecha & Hora</strong>
+                    Viernes 11 de Diciembre<br>
+                    De 20:30 a 03:30 hs
+                </div>
+                <div class="detail-item">
+                    <strong>🖤 Código de Vestimenta</strong>
+                    Total Black (elegante sport)
+                </div>
+            </div>
 
-        <!-- ENLACE DE CONFIRMACIÓN POR WHATSAPP 
-        (Reemplaza TU_NUMERO con tu característica y celular, ej: 5492613023328) -->
-        <a href="https://wa.me/2613023328text=¡Hola!%20Quiero%20confirmar%20mi%20asistencia%20a%20los%2015%20de%20Luciana.%20✨" target="_blank" class="btn btn-secondary">
-            ✅ CONFIRMAR ASISTENCIA (WHATSAPP)
-        </a>
+            <a href="https://maps.app.goo.gl/wDqsEFMu1FzSLMH59" target="_blank" class="btn btn-primary">
+                📍 ¿CÓMO LLEGAR? (VER MAPA)
+            </a>
+        </div>
 
-        <a href="https://photos.app.goo.gl/eweoQYuanceCSP9E6" target="_blank" class="btn btn-secondary">
-            📸 ÁLBUM PARA SUBIR FOTOS
-        </a>
+        <!-- SECCIÓN 4: ACCIONES Y CONFIRMACIÓN -->
+        <div class="section-card">
+            <h3 style="font-family: 'Cinzel Decorative', serif; color: var(--gold); margin-bottom: 15px; font-size: 1.1rem;">Confirmación & Recuerdos</h3>
+            
+            <!-- ENLACE DE WHATSAPP CONFIGURADO -->
+            <a href="https://wa.me/5492613023328?text=¡Hola!%20Quiero%20confirmar%20mi%20asistencia%20a%20los%2015%20de%20Luciana.%20✨" target="_blank" class="btn btn-secondary">
+                ✅ CONFIRMAR ASISTENCIA (WHATSAPP)
+            </a>
 
-        <!-- REGALO -->
-        <div class="gift-box">
-            <strong style="color: var(--silver); font-size: 0.9rem;">🎁 REGALO</strong>
-            <p style="font-size: 0.85rem; margin-top: 5px; color: #cbd5e1;">
+            <a href="https://photos.app.goo.gl/eweoQYuanceCSP9E6" target="_blank" class="btn btn-secondary">
+                📸 ÁLBUM PARA SUBIR FOTOS
+            </a>
+        </div>
+
+        <!-- SECCIÓN 5: REGALOS -->
+        <div class="section-card">
+            <strong style="color: var(--silver); font-size: 1rem; display: block; margin-bottom: 8px;">🎁 REGALO</strong>
+            <p style="font-size: 0.85rem; color: #cbd5e1; margin-bottom: 15px;">
                 Tu presencia es mi mejor regalo, pero si deseás hacerme un presente:
             </p>
             <div class="alias-text" id="alias">lu.bolzon.67</div>
-            <button onclick="copiarAlias()" class="btn btn-primary" style="padding: 10px; font-size: 0.8rem;">
+            <button onclick="copiarAlias()" class="btn btn-primary" style="padding: 12px; font-size: 0.85rem;">
                 📋 COPIAR ALIAS MERCADO PAGO
             </button>
             <div class="copy-msg" id="copyMsg">¡Alias copiado al portapapeles! ✨</div>
         </div>
 
-        <div style="margin-top: 25px; font-size: 1.5rem;">🦋💎✨</div>
+        <div style="text-align: center; margin-bottom: 20px; font-size: 1.5rem;">🦋💎✨</div>
     </div>
 
     <script>
