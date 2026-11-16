@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -7,9 +7,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-top: #0a1128;
-            --bg-bottom: #02050b;
-            --card-bg: rgba(13, 22, 45, 0.85);
+            --bg-top: #080e1a;
+            --bg-bottom: #020408;
+            --card-bg: rgba(13, 22, 45, 0.88);
             --gold: #dfb875;
             --silver: #e2e8f0;
             --silver-glow: #93c5fd;
@@ -27,21 +27,21 @@
             color: var(--text-light);
             font-family: 'Montserrat', sans-serif;
             min-height: 100vh;
-            overflow-x: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
             position: relative;
+            overflow-x: hidden;
         }
 
-        /* Mariposas y flores flotantes en tonos azules, plateados y oro */
+        /* Mariposas y flores flotantes decorativas */
         .floating-decor {
             position: fixed;
             pointer-events: none;
             z-index: 0;
             font-size: 2rem;
-            opacity: 0.45;
+            opacity: 0.4;
             animation: float 7s ease-in-out infinite;
         }
 
@@ -56,11 +56,11 @@
             max-width: 480px;
             width: 100%;
             background: var(--card-bg);
-            border: 1px solid rgba(223, 184, 117, 0.4);
+            border: 1px solid rgba(223, 184, 117, 0.35);
             border-radius: 30px;
             padding: 40px 25px;
             text-align: center;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 35px rgba(147, 197, 253, 0.2);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 35px rgba(147, 197, 253, 0.15);
             backdrop-filter: blur(12px);
         }
 
@@ -83,7 +83,7 @@
             font-family: 'Great Vibes', cursive;
             font-size: 4.8rem;
             color: var(--silver);
-            text-shadow: 0 0 20px rgba(226, 232, 240, 0.6);
+            text-shadow: 0 0 20px rgba(226, 232, 240, 0.5);
             line-height: 1.1;
             margin-bottom: 20px;
         }
@@ -114,7 +114,7 @@
             filter: invert(90%) hue-rotate(180deg);
         }
 
-        /* Cuenta regresiva */
+        /* Cuenta regresiva estilo moderno */
         .countdown-title {
             font-size: 0.8rem;
             text-transform: uppercase;
@@ -175,7 +175,7 @@
             margin-bottom: 3px;
         }
 
-        /* Botones interactivos en tonos azul marino y oro */
+        /* Botones interactivos */
         .btn {
             display: block;
             width: 100%;
@@ -243,7 +243,7 @@
 </head>
 <body>
 
-    <!-- Mariposas y flores decorativas en tonos azules, plateados y oro -->
+    <!-- Elementos flotantes de mariposas y flores -->
     <div class="floating-decor" style="top: 5%; left: 8%;">🦋</div>
     <div class="floating-decor" style="top: 15%; right: 10%; animation-delay: 2s;">🌸</div>
     <div class="floating-decor" style="bottom: 20%; left: 6%; animation-delay: 4s;">✨</div>
@@ -287,7 +287,7 @@
             </div>
             <div class="detail-item">
                 <strong>🖤 Código de Vestimenta</strong>
-                Total Black (Riguroso Negro)
+                Total Black (elegante sport)
             </div>
         </div>
 
@@ -296,8 +296,10 @@
             📍 ¿CÓMO LLEGAR? (VER MAPA)
         </a>
 
-        <a href="https://photos.app.goo.gl/eweoQYuanceCSP9E6" target="_blank" class="btn btn-secondary">
-            ✅ CONFIRMAR ASISTENCIA
+        <!-- ENLACE DE CONFIRMACIÓN POR WHATSAPP 
+        (Reemplaza TU_NUMERO con tu característica y celular, ej: 5492613023328) -->
+        <a href="https://wa.me/2613023328text=¡Hola!%20Quiero%20confirmar%20mi%20asistencia%20a%20los%2015%20de%20Luciana.%20✨" target="_blank" class="btn btn-secondary">
+            ✅ CONFIRMAR ASISTENCIA (WHATSAPP)
         </a>
 
         <a href="https://photos.app.goo.gl/eweoQYuanceCSP9E6" target="_blank" class="btn btn-secondary">
@@ -310,7 +312,7 @@
             <p style="font-size: 0.85rem; margin-top: 5px; color: #cbd5e1;">
                 Tu presencia es mi mejor regalo, pero si deseás hacerme un presente:
             </p>
-            <div class="alias-text" id="alias">luciana.784.tela.mp</div>
+            <div class="alias-text" id="alias">lu.bolzon.67</div>
             <button onclick="copiarAlias()" class="btn btn-primary" style="padding: 10px; font-size: 0.8rem;">
                 📋 COPIAR ALIAS MERCADO PAGO
             </button>
