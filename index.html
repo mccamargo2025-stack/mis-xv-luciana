@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mis XV - Luciana</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-top: #080e1a;
@@ -36,65 +36,101 @@
             overflow-y: hidden; /* Bloqueado hasta tocar Ingresar */
         }
 
-        /* PORTADA INICIAL */
+        /* PORTADA INICIAL ESTILO MINIMALISTA / ELEGANTE */
         .welcome-overlay {
             position: fixed;
             inset: 0;
-            background: radial-gradient(circle at center, #0d162d 0%, #020408 100%);
+            background: radial-gradient(circle at center, #0e1a36 0%, #03060d 100%);
             z-index: 9999;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 20px;
-            transition: opacity 0.8s ease, visibility 0.8s ease;
+            padding: 30px;
+            transition: opacity 0.9s ease, visibility 0.9s ease, transform 0.9s ease;
         }
 
         .welcome-overlay.hidden {
             opacity: 0;
             visibility: hidden;
+            transform: scale(1.04);
             pointer-events: none;
         }
 
-        .welcome-box {
-            border: 1px solid rgba(223, 184, 117, 0.45);
-            border-radius: 30px;
-            padding: 45px 30px;
-            background: rgba(13, 22, 45, 0.7);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85), 0 0 30px rgba(223, 184, 117, 0.15);
-            backdrop-filter: blur(10px);
-            max-width: 380px;
-            width: 100%;
+        .welcome-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: var(--silver);
+            opacity: 0.75;
+            margin-bottom: 12px;
         }
 
         .welcome-title {
-            font-family: 'Cinzel Decorative', serif;
-            font-size: 2.3rem;
+            font-family: 'Great Vibes', cursive;
+            font-size: 5rem;
+            font-weight: 400;
             color: var(--gold);
-            letter-spacing: 5px;
-            margin: 15px 0 30px;
-            text-shadow: 0 0 18px rgba(223, 184, 117, 0.4);
+            text-shadow: 0 0 25px rgba(223, 184, 117, 0.45);
+            line-height: 1.1;
+            margin-bottom: 45px;
         }
 
         .btn-enter {
-            background: linear-gradient(135deg, #dfb875 0%, #f7e3be 50%, #c89c52 100%);
-            color: #080c19;
-            border: none;
-            padding: 15px 42px;
+            background: transparent;
+            color: var(--gold);
+            border: 1.5px solid var(--gold);
+            padding: 14px 48px;
             border-radius: 50px;
             font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            font-size: 1rem;
-            letter-spacing: 3px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
             cursor: pointer;
-            box-shadow: 0 5px 20px rgba(223, 184, 117, 0.45);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 20px rgba(223, 184, 117, 0.2), inset 0 0 12px rgba(223, 184, 117, 0.1);
+            transition: all 0.35s ease;
+            animation: pulseGlow 2.5s infinite;
         }
 
         .btn-enter:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 25px rgba(223, 184, 117, 0.7);
+            background: var(--gold);
+            color: #060a14;
+            box-shadow: 0 0 30px rgba(223, 184, 117, 0.65);
+            transform: translateY(-2px);
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 15px rgba(223, 184, 117, 0.2); }
+            50% { box-shadow: 0 0 28px rgba(223, 184, 117, 0.55); }
+        }
+
+        /* Botón flotante de música en la esquina */
+        .floating-music-btn {
+            position: fixed;
+            top: 18px;
+            right: 18px;
+            z-index: 900;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(13, 22, 45, 0.85);
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            transition: transform 0.3s ease;
+        }
+
+        .floating-music-btn:hover {
+            transform: scale(1.1);
         }
 
         /* Mariposas y flores flotantes decorativas */
@@ -330,12 +366,13 @@
 
     <!-- PORTADA INICIAL -->
     <div class="welcome-overlay" id="welcomeOverlay">
-        <div class="welcome-box">
-            <div style="font-size: 2rem; letter-spacing: 8px;">💎🦋✨</div>
-            <h1 class="welcome-title">MIS XV LU</h1>
-            <button class="btn-enter" onclick="entrarTarjeta()">INGRESAR</button>
-        </div>
+        <div class="welcome-subtitle">Bienvenidos a</div>
+        <h1 class="welcome-title">Mis XV Lu</h1>
+        <button class="btn-enter" onclick="entrarTarjeta()">INGRESAR</button>
     </div>
+
+    <!-- Botón flotante de música -->
+    <button class="floating-music-btn" id="floatingMusicBtn" onclick="toggleMusica()" title="Pausar/Reproducir música">🎵</button>
 
     <!-- Reproductor oculto de YouTube -->
     <div id="youtube-player" style="position: fixed; top: -9999px; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none;"></div>
@@ -443,37 +480,47 @@
                     'autoplay': 0,
                     'controls': 0,
                     'loop': 1,
-                    'playlist': 'FM7MFYoylVs', // Necesario para que el loop funcione en YouTube
+                    'playlist': 'FM7MFYoylVs',
                     'playsinline': 1
                 }
             });
         }
 
         function entrarTarjeta() {
-            // Ocultar portada y habilitar scroll
             document.getElementById('welcomeOverlay').classList.add('hidden');
             document.body.style.overflowY = 'auto';
 
-            // Iniciar música
             if (player && typeof player.playVideo === 'function') {
                 player.playVideo();
                 isPlaying = true;
-                document.getElementById('musicToggleBtn').innerText = '⏸ Pausar Música';
+                actualizarBotonesMusica();
             }
         }
 
         function toggleMusica() {
             if (!player || typeof player.playVideo !== 'function') return;
 
-            const btn = document.getElementById('musicToggleBtn');
             if (isPlaying) {
                 player.pauseVideo();
                 isPlaying = false;
-                btn.innerText = '▶️ Reproducir Música';
             } else {
                 player.playVideo();
                 isPlaying = true;
+            }
+            actualizarBotonesMusica();
+        }
+
+        function actualizarBotonesMusica() {
+            const btn = document.getElementById('musicToggleBtn');
+            const floatBtn = document.getElementById('floatingMusicBtn');
+            if (isPlaying) {
                 btn.innerText = '⏸ Pausar Música';
+                floatBtn.innerText = '🎵';
+                floatBtn.style.opacity = '1';
+            } else {
+                btn.innerText = '▶️ Reproducir Música';
+                floatBtn.innerText = '🔇';
+                floatBtn.style.opacity = '0.6';
             }
         }
 
