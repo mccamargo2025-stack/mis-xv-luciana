@@ -36,7 +36,7 @@
             overflow-y: hidden; /* Bloqueado hasta tocar Ingresar */
         }
 
-        /* PORTADA INICIAL ESTILO MINIMALISTA / ELEGANTE */
+        /* PORTADA INICIAL */
         .welcome-overlay {
             position: fixed;
             inset: 0;
@@ -59,7 +59,6 @@
         }
 
         .welcome-subtitle {
-            font-family: 'Montserrat', sans-serif;
             font-size: 0.8rem;
             letter-spacing: 6px;
             text-transform: uppercase;
@@ -107,7 +106,7 @@
             50% { box-shadow: 0 0 28px rgba(223, 184, 117, 0.55); }
         }
 
-        /* Botón flotante de música en la esquina */
+        /* Botón flotante de música */
         .floating-music-btn {
             position: fixed;
             top: 18px;
@@ -133,7 +132,7 @@
             transform: scale(1.1);
         }
 
-        /* Mariposas y flores flotantes decorativas */
+        /* Elementos decorativos */
         .floating-decor {
             position: fixed;
             pointer-events: none;
@@ -312,6 +311,7 @@
             margin: 10px 0;
             border-radius: 50px;
             text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 600;
             font-size: 0.9rem;
             letter-spacing: 1px;
@@ -359,6 +359,159 @@
             color: #a3e4d7;
             display: none;
             margin-top: 5px;
+        }
+
+        /* =========================================
+           MODAL DE CONFIRMACIÓN DE ASISTENCIA (RSVP)
+           ========================================= */
+        .rsvp-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(2, 4, 8, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 9500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.35s ease, visibility 0.35s ease;
+        }
+
+        .rsvp-modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .rsvp-modal {
+            background: linear-gradient(160deg, #0e1830 0%, #070c18 100%);
+            border: 1px solid rgba(223, 184, 117, 0.5);
+            border-radius: 25px;
+            width: 100%;
+            max-width: 420px;
+            padding: 28px 22px;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 30px rgba(223, 184, 117, 0.15);
+            transform: translateY(20px);
+            transition: transform 0.35s ease;
+            text-align: left;
+        }
+
+        .rsvp-modal-overlay.active .rsvp-modal {
+            transform: translateY(0);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 16px;
+            right: 18px;
+            background: none;
+            border: none;
+            color: var(--silver);
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .close-modal:hover {
+            opacity: 1;
+            color: var(--gold);
+        }
+
+        .rsvp-title {
+            font-family: 'Cinzel Decorative', serif;
+            color: var(--gold);
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 6px;
+        }
+
+        .rsvp-subtitle {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gold);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .radio-option {
+            flex: 1;
+            position: relative;
+        }
+
+        .radio-option input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .radio-tile {
+            display: block;
+            text-align: center;
+            padding: 10px 8px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(226, 232, 240, 0.25);
+            color: var(--silver);
+            font-size: 0.82rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .radio-option input:checked + .radio-tile {
+            background: rgba(223, 184, 117, 0.2);
+            border-color: var(--gold);
+            color: var(--gold);
+            font-weight: 600;
+            box-shadow: 0 0 12px rgba(223, 184, 117, 0.25);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(226, 232, 240, 0.25);
+            color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.25s;
+        }
+
+        .form-control:focus {
+            border-color: var(--gold);
+        }
+
+        .form-control option {
+            background: #0e1830;
+            color: var(--text-light);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 70px;
         }
     </style>
 </head>
@@ -440,9 +593,10 @@
         <div class="section-card">
             <h3 style="font-family: 'Cinzel Decorative', serif; color: var(--gold); margin-bottom: 15px; font-size: 1.1rem;">Confirmación & Recuerdos</h3>
             
-            <a href="https://wa.me/5492613023328?text=¡Hola!%20Quiero%20confirmar%20mi%20asistencia%20a%20los%2015%20de%20Luciana.%20✨" target="_blank" class="btn btn-secondary">
-                ✅ CONFIRMAR ASISTENCIA (WHATSAPP)
-            </a>
+            <!-- Botón que abre el formulario modal -->
+            <button type="button" onclick="abrirModalRSVP()" class="btn btn-primary">
+                ✅ CONFIRMAR ASISTENCIA
+            </button>
 
             <a href="https://photos.app.goo.gl/eweoQYuanceCSP9E6" target="_blank" class="btn btn-secondary">
                 📸 ÁLBUM PARA SUBIR FOTOS
@@ -463,6 +617,58 @@
         </div>
 
         <div style="text-align: center; margin-bottom: 20px; font-size: 1.5rem;">🦋💎✨</div>
+    </div>
+
+    <!-- MODAL FORMULARIO DE CONFIRMACIÓN -->
+    <div class="rsvp-modal-overlay" id="rsvpModal" onclick="cerrarModalSiFuera(event)">
+        <div class="rsvp-modal">
+            <button class="close-modal" onclick="cerrarModalRSVP()" aria-label="Cerrar">&times;</button>
+            <h3 class="rsvp-title">Confirmar Asistencia</h3>
+            <p class="rsvp-subtitle">Completá tus datos para avisarle a Lu ✨</p>
+
+            <form id="rsvpForm" onsubmit="enviarConfirmacionWhatsApp(event)">
+                <div class="form-group">
+                    <label class="form-label">¿Vas a asistir?</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="asistencia" value="Sí, ¡allí estaré! 🎉" checked onchange="toggleCamposAsistencia()">
+                            <span class="radio-tile">✨ Sí, confirmo</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="asistencia" value="No podré asistir 😢" onchange="toggleCamposAsistencia()">
+                            <span class="radio-tile">❌ No puedo ir</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="guestName">Nombre y Apellido *</label>
+                    <input type="text" id="guestName" class="form-control" placeholder="Ej: Camila Pérez" required>
+                </div>
+
+                <div id="camposExtraAsistencia">
+                    <div class="form-group">
+                        <label class="form-label" for="dietary">¿Alguna restricción alimentaria?</label>
+                        <select id="dietary" class="form-control">
+                            <option value="Ninguna">Ninguna (Menú tradicional)</option>
+                            <option value="Celíaco / Sin TACC">Celíaco / Sin TACC</option>
+                            <option value="Vegetariano">Vegetariano</option>
+                            <option value="Vegano">Vegano</option>
+                            <option value="Otra (detallada abajo)">Otra (aclarar en el mensaje)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="guestMessage">Mensaje o canción sugerida (opcional)</label>
+                    <textarea id="guestMessage" class="form-control" placeholder="Dejale un saludo a Lu o sugerí un tema que no puede faltar..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="margin-top: 10px;">
+                    📲 ENVIAR POR WHATSAPP
+                </button>
+            </form>
+        </div>
     </div>
 
     <!-- API de YouTube -->
@@ -555,6 +761,59 @@
                 msg.style.display = "block";
                 setTimeout(() => { msg.style.display = "none"; }, 3000);
             });
+        }
+
+        // =========================================
+        // LÓGICA DEL MODAL RSVP
+        // =========================================
+        function abrirModalRSVP() {
+            document.getElementById('rsvpModal').classList.add('active');
+        }
+
+        function cerrarModalRSVP() {
+            document.getElementById('rsvpModal').classList.remove('active');
+        }
+
+        function cerrarModalSiFuera(event) {
+            if (event.target.id === 'rsvpModal') {
+                cerrarModalRSVP();
+            }
+        }
+
+        function toggleCamposAsistencia() {
+            const asiste = document.querySelector('input[name="asistencia"]:checked').value;
+            const camposExtra = document.getElementById('camposExtraAsistencia');
+            if (asiste.includes("No podré")) {
+                camposExtra.style.display = 'none';
+            } else {
+                camposExtra.style.display = 'block';
+            }
+        }
+
+        function enviarConfirmacionWhatsApp(event) {
+            event.preventDefault();
+
+            const telefono = "5492613023328";
+            const asistencia = document.querySelector('input[name="asistencia"]:checked').value;
+            const nombre = document.getElementById('guestName').value.trim();
+            const dieta = document.getElementById('dietary').value;
+            const mensaje = document.getElementById('guestMessage').value.trim();
+
+            let textoWhatsApp = `*CONFIRMACIÓN XV DE LUCIANA* ✨\n\n`;
+            textoWhatsApp += `👤 *Invitado/a:* ${nombre}\n`;
+            textoWhatsApp += `📌 *Estado:* ${asistencia}\n`;
+
+            if (!asistencia.includes("No podré")) {
+                textoWhatsApp += `🍽️ *Menú:* ${dieta}\n`;
+            }
+
+            if (mensaje !== "") {
+                textoWhatsApp += `💌 *Mensaje/Canción:* ${mensaje}\n`;
+            }
+
+            const urlWhatsApp = `https://wa.me/${telefono}?text=${encodeURIComponent(textoWhatsApp)}`;
+            window.open(urlWhatsApp, '_blank');
+            cerrarModalRSVP();
         }
     </script>
 </body>
